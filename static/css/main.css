@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --charcoal: #2a3d45;
+    --off-white: #f6ffff;
+    --strong-blue: #2982ac;
+    --pale-blue: #2982ac;
+    --footer-height: 80px;
+    }
+html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    height: 100%;
+}
+body .container {
+    height: 100%;
+}
+footer {
+    font-family: 'Roboto';
+    background-color: var(--charcoal);
+    color: grey;
+    height: var(--footer-height);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+h1 {
+    font-family: 'Nunito';
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    border: solid white;
+}
+#banner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/circuitboard-background.jpg");
+    background-size: cover;
+}
+.logo { 
+    width: 32px;
+    height: 32px;
+}
