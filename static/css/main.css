@@ -6,6 +6,7 @@
     --off-white: #f6ffff;
     --strong-blue: #2982ac;
     --pale-blue: #2982ac;
+    --circuit-blue: #4f5f77;
     --footer-height: 80px;
     }
 html {
@@ -37,7 +38,8 @@ footer {
 h1 {
     font-family: 'Nunito';
     text-transform: uppercase;
-    color: white;
+    color: var(--circuit-blue);
+    background-color: white;
     padding: 15px;
     border: solid white;
 }
