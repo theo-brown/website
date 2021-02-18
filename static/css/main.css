@@ -47,7 +47,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/circuitboard-background.jpg");
+    background-image: url("/static/images/circuitboard-background.jpg");
     background-size: cover;
 }
 .logo { 
