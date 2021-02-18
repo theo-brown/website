@@ -1,0 +1,11 @@
+[Unit]
+Description=theobrown.uk web app
+ConditionHost=sinkhole
+
+[Install]
+WantedBy=default.target
+
+[Service]
+WorkingDirectory=/home/tab53/programs/website/
+ExecStart=/home/tab53/programs/website/run
+Restart=always

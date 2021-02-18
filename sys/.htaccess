@@ -1,0 +1,6 @@
+RequestHeader set Host expr=%{HTTP_HOST}
+RequestHeader set X-Forwarded-For expr=%{REMOTE_ADDR}
+RequestHeader set X-Forwarded-Proto expr=%{REQUEST_SCHEME}
+RequestHeader set X-Real-IP expr=%{REMOTE_ADDR}
+RewriteRule ^(.*)$ unix:/home/tab53/programs/website/web.sock|http://tab53.user.srcf.net/$1 [P,NE,L,QSA]
+DirectoryIndex disabled
