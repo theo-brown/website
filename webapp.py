@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-import json
+from flask import Flask, render_template, json, jsonify
 
 app = Flask(__name__)
 
@@ -7,11 +6,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/match_config.json')
+@app.route('/match_config')
 def match_config():
     with open("/home/tab53/programs/matchbot/get5/configs/match_config.json") as f:
         config = json.load(f)
-    return config
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return jsonify(config)
