@@ -24,6 +24,18 @@ body {
 }
 body .container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+body .textbody {
+    background-color: var(--off-white);
+    color: var(--charcoal);
+    padding: 15px;
+    text-align: center;
 }
 footer {
     font-family: 'Roboto';
@@ -33,7 +45,7 @@ footer {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 h1 {
     font-family: 'Nunito';
@@ -43,16 +55,30 @@ h1 {
     padding: 15px;
     border: solid white;
 }
-#banner {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#comingsoon {
     background-image: url("/static/images/circuitboard-background.jpg");
-    background-size: cover;
+}
+#minecraft {
+    background-image: url("/static/images/minecraft-background.jpg")
 }
 .logo { 
     width: 32px;
     height: 32px;
+}
+.button {
+    font-family: 'Roboto';
+    background-color: var(--circuit-blue);
+    color: var(--off-white);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-style: solid;
+    border-color: var(--circuit-blue);
+    border-width: 2px;
+}
+.button:hover {
+    background-color: var(--off-white);
+    color: var(--circuit-blue);
 }
