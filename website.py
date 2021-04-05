@@ -20,10 +20,12 @@ def minecraft():
     if request.method == "POST":
         if MinecraftButtonText == "Start":
             MinecraftButtonText = "Stop"
-            subprocess.call(['systemctl', '--user', 'start', 'minecraft_server.service'])
+            subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
+                             'systemctl', '--user', 'start', 'minecraft.service'])
         else:
             MinecraftButtonText = "Start"
-            subprocess.call(['systemctl', '--user', 'stop', 'minecraft_server.service'])
+            subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
+                             'systemctl', '--user', 'stop', 'minecraft.service'])
     return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText)
 
 if __name__ == '__main__':
