@@ -1,4 +1,5 @@
 from flask import Flask, render_template, json, jsonify, request
+import subprocess
 
 app = Flask(__name__)
 
@@ -19,8 +20,10 @@ def minecraft():
     if request.method == "POST":
         if MinecraftButtonText == "Start":
             MinecraftButtonText = "Stop"
+            subprocess.call(['systemctl', '--user', 'start', 'minecraft_server.service'])
         else:
             MinecraftButtonText = "Start"
+            subprocess.call(['systemctl', '--user', 'stop', 'minecraft_server.service'])
     return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText)
 
 if __name__ == '__main__':
