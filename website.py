@@ -1,5 +1,5 @@
 from flask import Flask, render_template, json, jsonify, request
-import subprocess
+import minecraft
 
 app = Flask(__name__)
 
@@ -8,25 +8,23 @@ def index():
     return render_template('index.html')
 
 @app.route('/match_config')
-def match_config():
+def match_config_page():
     with open("/home/theo/Documents/projects/discord/matchbot/get5/configs/match_config.json") as f:
         config = json.load(f)
     return jsonify(config)
 
-MinecraftButtonText = "Start"
 @app.route('/minecraft', methods=["POST", "GET"])
-def minecraft():
-    global MinecraftButtonText
+def minecraft_page():
+    MinecraftStatus = minecraft.status()
+    MinecraftButtonText = "Start" if MinecraftStatus == "Inactive" else "Stop"
     if request.method == "POST":
         if MinecraftButtonText == "Start":
-            MinecraftButtonText = "Stop"
-            subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
-                             'systemctl', '--user', 'start', 'minecraft.service'])
+            minecraft.start()
+            MinecraftStatus = minecraft.status()
         else:
-            MinecraftButtonText = "Start"
-            subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
-                             'systemctl', '--user', 'stop', 'minecraft.service'])
-    return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText)
+            minecraft.stop()
+            MinecraftStatus = minecraft.status()
+    return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText, MinecraftStatus=MinecraftStatus)
 
 if __name__ == '__main__':
     app.run(debug=True)
