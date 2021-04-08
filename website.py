@@ -21,9 +21,11 @@ def minecraft_page():
         if MinecraftButtonText == "Start":
             minecraft.start()
             MinecraftStatus = minecraft.status()
+            MinecraftButtonText = "Stop"
         else:
             minecraft.stop()
             MinecraftStatus = minecraft.status()
+            MinecraftButtonText = "Start"
     return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText, MinecraftStatus=MinecraftStatus)
 
 if __name__ == '__main__':
