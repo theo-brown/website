@@ -8,11 +8,17 @@ def stop():
     return subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
                             'systemctl', '--user', 'start', 'minecraft.service'])
 
-def status():
+def is_running():
     process = subprocess.run(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
                               'systemctl', '--user', 'is-active', 'minecraft.service'])
     output = process.stdout
     if output == 'active':
-        return 'Running'
+        return True
     else:
-        return 'Inactive'
+        return False
+
+def status_text():
+    if is_running():
+        return "Running"
+    else:
+        return "Inactive"

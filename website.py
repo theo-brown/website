@@ -15,18 +15,19 @@ def match_config_page():
 
 @app.route('/minecraft', methods=["POST", "GET"])
 def minecraft_page():
-    MinecraftStatus = minecraft.status()
-    MinecraftButtonText = "Start" if MinecraftStatus == "Inactive" else "Stop"
+    MinecraftStatusText = minecraft.status_text()
+    MinecraftButtonText = "Stop" if minecraft.is_running() else "Start"
+
     if request.method == "POST":
         if MinecraftButtonText == "Start":
             minecraft.start()
-            MinecraftStatus = minecraft.status()
+            MinecraftStatusText = minecraft.status_text()
             MinecraftButtonText = "Stop"
         else:
             minecraft.stop()
-            MinecraftStatus = minecraft.status()
+            MinecraftStatusText = minecraft.status_text()
             MinecraftButtonText = "Start"
-    return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText, MinecraftStatus=MinecraftStatus)
+    return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText, MinecraftStatusText=MinecraftStatusText)
 
 if __name__ == '__main__':
     app.run(debug=True)
