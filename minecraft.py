@@ -6,7 +6,7 @@ def start():
 
 def stop():
     return subprocess.call(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
-                            'systemctl', '--user', 'start', 'minecraft.service'])
+                            'systemctl', '--user', 'stop', 'minecraft.service'])
 
 def is_running():
     process = subprocess.run(['ssh', '-i' '/home/tab53/.ssh/sinkhole_to_doom/id_rsa', 'tab53@doom.srcf.net',
