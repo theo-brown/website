@@ -9,7 +9,7 @@ def index():
 
 @app.route('/match_config')
 def match_config_page():
-    with open("/home/theo/Documents/projects/discord/matchbot/get5/configs/match_config.json") as f:
+    with open("/home/tab53/programs/matchbot/get5/configs/match_config.json") as f:
         config = json.load(f)
     return jsonify(config)
 
