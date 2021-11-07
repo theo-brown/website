@@ -12,15 +12,15 @@ jobs:
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "$DEPLOYMENT_SERVER_PUBLIC_KEY" > ~/.ssh/deployment_server.pub
-          chmod 600 ~/.ssh/deployment_server.pub
+          echo "$DEPLOYMENT_ACTION_PRIVATE_KEY" > ~/.ssh/deploy-action.key
+          chmod 600 ~/.ssh/deploy-action.key
           echo "Host deployment_server
                   HostName $DEPLOYMENT_SERVER_HOST
                   User $DEPLOYMENT_SERVER_USER
-                  IdentityFile ~/.ssh/deployment_server.pub
+                  IdentityFile ~/.ssh/deploy-action.key
                   StrictHostKeyChecking no" > ~/.ssh/config
         env:
-          DEPLOYMENT_SERVER_PUBLIC_KEY: ${{ secrets.DEPLOYMENT_SERVER_PUBLIC_KEY }}
+          DEPLOYMENT_ACTION_PRIVATE_KEY: ${{ secrets.DEPLOYMENT_ACTION_PRIVATE_KEY }}
           DEPLOYMENT_SERVER_HOST: ${{ secrets.DEPLOYMENT_SERVER_HOST }}
           DEPLOYMENT_SERVER_USER: ${{ secrets.DEPLOYMENT_SERVER_USER }}
           
