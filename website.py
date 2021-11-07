@@ -1,32 +1,18 @@
-from flask import Flask, render_template, json, jsonify, request, redirect
-import minecraft
+from flask import Flask, render_template, redirect
+
 
 app = Flask(__name__)
 
+
 @app.route('/')
-def index():
+def index_page():
     return render_template('index.html')
 
-# @app.route('/match_config')
-# def match_config_page():
-#     with open("/home/tab53/programs/matchbot/get5/configs/match_config.json") as f:
-#         config = json.load(f)
-#     return jsonify(config)
-#
-# @app.route('/minecraft', methods=["POST", "GET"])
-# def minecraft_page():
-#     MinecraftStatusText = minecraft.status_text()
-#     MinecraftButtonText = "Stop" if minecraft.is_running() else "Start"
-#
-#     if request.method == "POST":
-#         if MinecraftButtonText == "Start":
-#             minecraft.start()
-#         else:
-#             minecraft.stop()
-#         MinecraftStatusText = minecraft.status_text()
-#         MinecraftButtonText = "Stop" if minecraft.is_running() else "Start"
-#
-#     return render_template('minecraft.html', MinecraftButtonText=MinecraftButtonText, MinecraftStatusText=MinecraftStatusText)
+
+@app.route('/cv')
+def cv_page():
+    return redirect('https://raw.githubusercontent.com/theo-brown/cv/main/cv.pdf')
+
 
 @app.route('/setup/python')
 def setup_python_page():

@@ -6,70 +6,75 @@
     --off-white: #f6ffff;
     --strong-blue: #2982ac;
     --pale-blue: #2982ac;
-    --circuit-blue: #4f5f77;
-    --footer-height: 80px;
+    --circuit-blue: #364e71;
     }
-html {
-   margin: 0px;
-   height: 100%;
-   width: 100%;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+html, body{
     padding: 0;
-    font-family: 'Roboto';
-    height: 100%;
+    margin: 0;
+    min-height: 100vh;
+    min-width: 100vw;
 }
-body .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.page {
+    min-height: 90vh;
+    min-width: 90vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+.container {
+    display: inline-flex;
+    justify-content: space-between;
     align-items: center;
     background-size: cover;
     background-position: center;
 }
-body .textbody {
-    background-color: var(--off-white);
-    color: var(--charcoal);
-    padding: 15px;
-    text-align: center;
+.verticalcontainer {
+    flex-direction: column;
 }
-footer {
-    font-family: 'Roboto';
-    background-color: var(--charcoal);
-    color: grey;
-    height: var(--footer-height);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.horizontalcontainer {
+    flex-direction: row;
 }
 h1 {
-    font-family: 'Nunito';
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    font-size: max(min(5vw, 5vh), 20px);
+    margin: 0;
+    padding-top: max(5vh, 10px);
+    padding-bottom: max(5vh, 10px);
     text-transform: uppercase;
     color: var(--circuit-blue);
-    background-color: white;
-    padding: 15px;
-    border: solid white;
 }
-#comingsoon {
-    background-image: url("/static/images/circuitboard-background.jpg");
+.content {
+    background-color: var(--off-white);
+    padding-top: max(10vh, 10px);
+    padding-bottom: max(10vh, 10px);
+    padding-right: max(10vw, 5px);
+    padding-left: max(10vw, 5px);
 }
-#minecraft {
-    background-image: url("/static/images/minecraft-background.jpg")
+.icon {
+    height: 10vh;
+    width: auto;
+    min-height: 35px;
 }
-.logo { 
-    width: 32px;
-    height: 32px;
+#indexpage {
+    background-image: url("/static/images/circuitboard-background-blurred.jpg");
 }
+#avatar {
+    border-radius: 50%;
+    height: 40vh;
+    width: 40vh;
+    min-height: 140px;
+    min-width: 140px;
+}
+#social {
+    width: 100%;
+}
+/*
 .button {
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     background-color: var(--circuit-blue);
     color: var(--off-white);
-    border: none;
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -82,3 +87,4 @@ h1 {
     background-color: var(--off-white);
     color: var(--circuit-blue);
 }
+*/
