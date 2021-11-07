@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
-    --charcoal: #2a3d45;
     --off-white: #f6ffff;
-    --strong-blue: #2982ac;
-    --pale-blue: #2982ac;
     --circuit-blue: #364e71;
     }
 html, body{
@@ -17,10 +14,7 @@ html, body{
 .page {
     min-height: 90vh;
     min-width: 90vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 5vh 5vw;
 }
 .container {
     display: inline-flex;
@@ -47,10 +41,7 @@ h1 {
 }
 .content {
     background-color: var(--off-white);
-    padding-top: max(10vh, 10px);
-    padding-bottom: max(10vh, 10px);
-    padding-right: max(10vw, 5px);
-    padding-left: max(10vw, 5px);
+    padding: max(10vh, 10px) max(10vw, 5px);
 }
 .icon {
     height: 10vh;
@@ -70,21 +61,3 @@ h1 {
 #social {
     width: 100%;
 }
-/*
-.button {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--circuit-blue);
-    color: var(--off-white);
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    border-style: solid;
-    border-color: var(--circuit-blue);
-    border-width: 2px;
-}
-.button:hover {
-    background-color: var(--off-white);
-    color: var(--circuit-blue);
-}
-*/
