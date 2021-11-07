@@ -1,2 +1,2 @@
 # website
-Source code for theobrown.uk
+Source code for my personal website, [theobrown.uk](https://theobrown.uk)
