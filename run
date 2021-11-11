@@ -1,4 +1,8 @@
 #!/bin/bash -e
-source /home/tab53/programs/website/venv/bin/activate
-PYTHONPATH=/home/tab53/programs/website/:$PYTHONPATH
+# Requires environment variable $WEBSITE_DIR set
+# Activate venv
+source $WEBSITE_DIR/venv/bin/activate
+# Add to PATH
+PYTHONPATH=$WEBSITE_DIR:$PYTHONPATH
+# Launch app
 exec gunicorn -w 1 -b unix:web.sock --log-file - --access-logfile - website:app
