@@ -29,7 +29,7 @@ def setup_python_page():
 @app.route('/webhooks/website-update', methods=['POST'])
 def website_update_webhook():
     if verify_github_webhook(request, getenv('WEBSITE_UPDATE_WEBHOOK')):
-        subprocess.run("./webhooks/website-update.sh")
+        subprocess.run(["sh", f"{getenv('ROOT_DIR')}/webhooks/website-update.sh"])
         return jsonify({'message': 'success'}), 200
     else:
         return jsonify({'message': 'failure'}), 404
