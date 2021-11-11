@@ -28,26 +28,29 @@ def setup_python_page():
 
 @app.route('/webhooks/website-update', methods=['POST'])
 def website_update_webhook():
-    if verify_github_webhook(request, getenv('WEBSITE_UPDATE_WEBHOOK')):
-        subprocess.run(["sh", f"{getenv('ROOT_DIR')}/webhooks/website-update.sh"])
-        return jsonify({'message': 'success'}), 200
+    if verify_github_webhook(request, getenv('WEBSITE_UPDATE_WEBHOOK_SECRET')):
+        process = subprocess.run(["bash", "webhooks/website-update.sh"], cwd=getenv('WEBSITE_DIR'))
+        if process.returncode == 0:
+            return jsonify({'message': 'success'}), 200
+        else:
+            return jsonify({'message': 'failure'}), 500
     else:
         return jsonify({'message': 'failure'}), 404
 
 
-def verify_signature(request, signature, secret):
+def verify_signature(request_object, signature, secret):
     hashed_secret = hmac.new(secret.encode(),
-                             msg=request.get_data(),
+                             msg=request_object.get_data(),
                              digestmod='sha256').hexdigest()
     return hmac.compare_digest(hashed_secret, signature)
 
 
-def verify_github_webhook(request, secret):
-    header_signature = request.headers.get('X-Hub-Signature-256')
+def verify_github_webhook(request_object, secret):
+    header_signature = request_object.headers.get('X-Hub-Signature-256')
     if not header_signature:
         return False
     sha_type, signature = header_signature.split('=')
-    return verify_signature(request, signature, secret)
+    return verify_signature(request_object, signature, secret)
 
 
 if __name__ == '__main__':
