@@ -1,0 +1,6 @@
+[submodule "static/files/setup"]
+	path = static/files/setup
+	url = git@github.com:theo-brown/setup.git
+[submodule "static/files/cv"]
+	path = static/files/cv
+	url = git@github.com:theo-brown/cv.git
