@@ -24,17 +24,17 @@ def cv_page():
 
 @app.route('/setup/conda')
 def setup_conda_page():
-    return send_file('static/files/setup/conda-setup.sh')
+    return send_file('static/files/setup/conda-setup')
 
 
 @app.route('/setup/ssh')
 def setup_ssh_page():
-    return send_file('static/files/setup/ssh-setup.sh')
+    return send_file('static/files/setup/ssh-setup')
 
 
 @app.route('/setup/docker')
 def setup_docker_page():
-    return send_file('static/files/setup/docker-setup.sh')
+    return send_file('static/files/setup/docker-setup')
 
 
 # WEBHOOKS
@@ -60,7 +60,7 @@ def run_webhook(request, secret, commands):
             return jsonify({'message': 'success'}), 200
         else:
             return jsonify({'message': 'failure'}), 500
-    else:
+   else:
         return jsonify({'message': 'failure'}), 404
 
 
