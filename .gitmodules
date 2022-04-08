@@ -1,9 +1,12 @@
 [submodule "static/files/setup"]
 	path = static/files/setup
-	url = git@github.com:theo-brown/setup.git
+	url = https://github.com/theo-brown/setup
+	branch = main
 [submodule "static/files/cv"]
 	path = static/files/cv
-	url = git@github.com:theo-brown/cv.git
+	url = https://github.com/theo-brown/cv
+	branch = main
 [submodule "static/files/conda-setup"]
 	path = static/files/conda-setup
 	url = https://github.com/theo-brown/conda-setup
+	branch = main

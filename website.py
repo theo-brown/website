@@ -71,11 +71,18 @@ def setup_update_webhook():
                        ["bash", "webhooks/setup-update.sh"])
 
 
+@app.route('/webhooks/conda-setup-update', methods=['POST'])
+def conda_setup_update_webhook():
+    return run_webhook(request,
+                       getenv('CONDA_SETUP_UPDATE_WEBHOOK_SECRET'),
+                       ["bash", "webhooks/conda-setup-update.sh"])
+
+
 @app.route('/webhooks/website-update', methods=['POST'])
 def website_update_webhook():
     return run_webhook(request,
                        getenv('WEBSITE_UPDATE_WEBHOOK_SECRET'),
-                       ["bash", "webhooks/setup-update.sh"])
+                       ["bash", "webhooks/website-update.sh"])
 
 
 @app.route('/webhooks/cv-update', methods=['POST'])
