@@ -24,7 +24,7 @@ def cv_page():
 
 @app.route('/setup/conda')
 def setup_conda_page():
-    return send_file('static/files/setup/conda-setup')
+    return send_file('static/files/conda-setup/conda-setup')
 
 
 @app.route('/setup/ssh')

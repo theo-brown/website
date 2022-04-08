@@ -4,3 +4,6 @@
 [submodule "static/files/cv"]
 	path = static/files/cv
 	url = git@github.com:theo-brown/cv.git
+[submodule "static/files/conda-setup"]
+	path = static/files/conda-setup
+	url = https://github.com/theo-brown/conda-setup
