@@ -1,3 +1,1 @@
-echo "Updating CV submodule..."
-cd static/files/cv
-git pull
+git submodule update --remote static/files/cv

@@ -1,3 +1,1 @@
-echo "Updating setup submodule..."
-cd static/files/setup
-git pull
+git submodule update --remote static/files/setup
